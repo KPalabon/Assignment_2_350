@@ -1,6 +1,6 @@
 // Problem 1 
 // Author: Joaquin
-match (n) - [r:PARTICIPATED_IN] -> (m) return m
+match (n:Team) - [r:PARTICIPATED_IN] -> (m) return m.name as tournaments
 
 //Problem 2
 // Author: Brendan
@@ -14,7 +14,7 @@ RETURN p.dob AS dob
 
 // Problem 4
 // Author: Joaquin
-match (n) where n.name contains 'Hara' return n
+match (n:Person) where n.name contains 'Hara' return properties(n)
 
 // Problem 5
 //Author: Brendan
@@ -29,7 +29,7 @@ RETURN p.name AS player_name
 
 // Problem 7
 // Author: Joaquin
-match (n) - [r:COACH_FOR] -> (m) where m.id contains 'USA in 2019' return n
+match (n:Person) - [r:COACH_FOR] -> (m: Squad {id: 'USA in 2019'}) return n.name as coach_name
 
 // Problem 8
 // Author: Brendan
